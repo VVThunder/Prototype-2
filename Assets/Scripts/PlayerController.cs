@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Controls player movement
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
+        //Makes space bar activate the projectile function
         if (Input.GetKeyDown(KeyCode.Space))
         { 
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
